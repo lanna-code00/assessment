@@ -23,6 +23,7 @@ function Header()
                         <>
                     <Link to="/add" style={{ textDecoration:'none' }} className="me-5">Add Schools</Link>
                     <Link to="/update" style={{ textDecoration:'none' }} className="me-5">Update Schools</Link>
+                    <Link to="/allschools" style={{ textDecoration:'none' }} className="me-5">All Schools</Link>
                         </>
                         :
                         <>

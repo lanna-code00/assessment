@@ -7,14 +7,15 @@ import Login from './components/Login.js';
 import Register from './components/Register.js';
 import Addproduct from './components/Addproduct.js'
 import Updateproduct from './components/Updateproduct.js';
+import Userspage from './Userspage/Userspage.js';
+import Protected from "./components/Protected.js";
 
 function App() {
   return (
     <div className="App">
-         {/* <Userspage/> */}
+         <Userspage/>
 
       <BrowserRouter>
-          <Header/>
         <Route path="/login">
           <Login/>
         </Route>
@@ -22,10 +23,12 @@ function App() {
           <Register/>
         </Route>
         <Route path="/add">
-          <Addproduct/>
+          <Protected Cmp={Addproduct}/>
+          {/* <Addproduct/> */}
         </Route>
         <Route path="/update">
-          <Updateproduct/>
+          <Protected Cmp={Updateproduct}/>
+          {/* <Updateproduct/> */}
         </Route>
 
       </BrowserRouter>

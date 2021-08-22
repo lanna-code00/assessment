@@ -9,7 +9,6 @@ function Addproduct()
     const [details, setDetail] = useState()
     const [links, setLinks] = useState()
     const [image, setImage] = useState()
-    const history = useHistory();
 
     async function handleSchools () {
        let formdata = new FormData();
@@ -22,7 +21,7 @@ function Addproduct()
            method: "POST",
            body: formdata
        });
-        history.push('/allschools')
+       console.log("Data has been saved");
     }
 
     return (

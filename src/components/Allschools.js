@@ -45,10 +45,10 @@ const Allschools = () => {
                 </thead>
                 <tbody>
                 {
-                    data.map((school) => {
+                    data.map((school, i) => {
                         return (
                             <tr key={school.id}>
-                                <th scope="row">{school.id}</th>
+                                <th scope="row">{i + 1}</th>
                                 <td>{school.name}</td>
                                 <td>{school.details}</td>
                                 <td><a href={school.links} target="_blank">{school.links}</a> </td>

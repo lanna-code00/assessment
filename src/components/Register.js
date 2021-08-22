@@ -18,7 +18,7 @@ function Register()
     async function handleSignUp () {
         let user = {name, email, password};
         
-       let result = await fetch("http://127.0.0.1:8000/api/register", {
+       let result = await fetch("https://travel4college.herokuapp.com/api/register", {
             method: "POST",
             body: JSON.stringify(user),
             headers: {

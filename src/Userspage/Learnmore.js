@@ -5,7 +5,7 @@ const Learnmore = (props) => {
     const [state, setstate] = useState([]);
 
     useEffect( async () => {
-        let result = await fetch(`http://localhost:8000/api/getschoolname/${props.match.params.id}`);
+        let result = await fetch(`https://travel4college.herokuapp.com/api/getschoolname/${props.match.params.id}`);
         result = await result.json();
         setstate(result);
     }, [])
@@ -18,7 +18,7 @@ const Learnmore = (props) => {
                     <div className="card mb-3 mt-5" style={{ border:'none' }}>
                     <div className="row g-0 mt-5">
                         <div className="col-md-4">
-                        <img src={`http://localhost:8000/${state.image}`} className="img-fluid rounded-start" alt="..."/>
+                        <img src={`https://travel4college.herokuapp.com/${state.image}`} className="img-fluid rounded-start" alt="..."/>
                         </div>
                         <div className="col-md-8">
                         <div className="card-body">

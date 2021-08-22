@@ -14,7 +14,7 @@ function Updateproduct(props)
     let editId = props.match.params.id;
 
     useEffect( async () => {
-        let result = await fetch(`http://localhost:8000/api/getschool/${editId}`);
+        let result = await fetch(`https://travel4college.herokuapp.com/api/getschool/${editId}`);
         result = await result.json();
         setstate(result);
     }, [])
@@ -25,7 +25,7 @@ function Updateproduct(props)
     formdata.append('details', details); 
     formdata.append('links', links); 
     formdata.append('image', image); 
-      let  editschool = await fetch(`http://localhost:8000/api/edit/${editId}`, {
+      let  editschool = await fetch(`https://travel4college.herokuapp.com/api/edit/${editId}`, {
         method: "POST",
         body: formdata
     });
@@ -61,7 +61,7 @@ function Updateproduct(props)
                         </div>
 
                         <div className="input-group mb-5">
-                            <img src={`http://localhost:8000/${state.image}`} style={{width: 100}}/>
+                            <img src={`https://travel4college.herokuapp.com/${state.image}`} style={{width: 100}}/>
                         </div>
 
                         <div className="input-group mb-5">

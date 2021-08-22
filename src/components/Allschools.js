@@ -11,7 +11,7 @@ const Allschools = () => {
     }, []);
 
     async function handleDelete (deleteId) {
-         let  deleteschool = await fetch(`http://localhost:8000/api/delete/${deleteId}`, {
+         let  deleteschool = await fetch(`https://travel4college.herokuapp.com/api/delete/${deleteId}`, {
              method: "DELETE",
          });
          deleteschool = await deleteschool.json();
@@ -19,7 +19,7 @@ const Allschools = () => {
     }
 
     async function getSchools () {
-        let myschools = await fetch("http://localhost:8000/api/allschool");
+        let myschools = await fetch("https://travel4college.herokuapp.com/api/allschool");
         myschools = await myschools.json();
         setData(myschools);
     }
@@ -52,7 +52,7 @@ const Allschools = () => {
                                 <td>{school.name}</td>
                                 <td>{school.details}</td>
                                 <td><a href={school.links} target="_blank">{school.links}</a> </td>
-                                <td><img src={`http://localhost:8000/${school.image}`} style={{ width: '40px', height: '40px' }}/></td>
+                                <td><img src={`https://travel4college.herokuapp.com/${school.image}`} style={{ width: '40px', height: '40px' }}/></td>
                                 <td>
                                     <Link to={`/update/${school.id}`}>
                                     <span className="fa fa-edit p-2 text-primary" style={{ cursor: 'pointer' }}></span> 

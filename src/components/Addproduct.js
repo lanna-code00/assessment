@@ -17,7 +17,7 @@ function Addproduct()
        formdata.append('links', links); 
        formdata.append('image', image); 
 
-       let submission = await fetch("http://localhost:8000/api/schools", {
+       let submission = await fetch("https://travel4college.herokuapp.com/api/schools", {
            method: "POST",
            body: formdata
        });

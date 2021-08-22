@@ -10,13 +10,14 @@ import Updateproduct from './components/Updateproduct.js';
 import Userspage from './Userspage/Userspage.js';
 import Protected from "./components/Protected.js";
 import Allschools from './components/Allschools.js';
+import Learnmore from './Userspage/Learnmore';
 
 function App() {
   return (
     <div className="App">
-         {/* <Userspage/> */}
-
+      
       <BrowserRouter>
+
         <Switch>
         <Route path="/login">
           <Login/>
@@ -28,21 +29,30 @@ function App() {
 
         <Route path="/add">
           <Protected Cmp={Addproduct}/>
-          {/* <Addproduct/> */}
         </Route>
 
-        <Route path="/update">
+        <Route path="/update/:id">
           <Protected Cmp={Updateproduct}/>
-          {/* <Updateproduct/> */}
+        </Route>
+
+        <Route path="/allschools">
+          <Protected Cmp={Allschools}/>
+        </Route>
+
+        <Route path="/learnmore/:id">
+            <Learnmore/>
         </Route>
 
         <Route path="/">
-          <Protected Cmp={Allschools}/>
-          {/* <Updateproduct/> */}
+          <Userspage/>
         </Route>
 
         </Switch>
       </BrowserRouter>
+
+
+
+      {/* } */}
     </div>
   );
 }

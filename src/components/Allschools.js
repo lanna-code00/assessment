@@ -1,6 +1,7 @@
 import Header from "./Header"
 import React, {useState, useEffect} from "react";
 import {Table} from "react-bootstrap";
+import {Link} from 'react-router-dom';
 
 const Allschools = () => {
     const [data, setData] = useState([]);
@@ -15,15 +16,6 @@ const Allschools = () => {
          });
          deleteschool = await deleteschool.json();
          getSchools();
-    }
-
-    async function handleEdit (editId) {
-      console.log(editId);
-      let  editschool = await fetch(`http://localhost:8000/api/edit/${editId}`, {
-        method: "PUT",
-    });
-        editschool = await editschool.json();
-        getSchools();
     }
 
     async function getSchools () {
@@ -62,7 +54,10 @@ const Allschools = () => {
                                 <td><a href={school.links} target="_blank">{school.links}</a> </td>
                                 <td><img src={`http://localhost:8000/${school.image}`} style={{ width: '40px', height: '40px' }}/></td>
                                 <td>
-                                    <span onClick={() => handleEdit(school.id)} className="fa fa-edit p-2 text-primary" style={{ cursor: 'pointer' }}></span> 
+                                    <Link to={`/update/${school.id}`}>
+                                    <span className="fa fa-edit p-2 text-primary" style={{ cursor: 'pointer' }}></span> 
+                                    </Link>
+                                    
                                     <span onClick={() => handleDelete(school.id)} style={{ cursor: 'pointer' }} className="fa fa-trash text-danger"></span>
                                 </td>
                             </tr>
@@ -71,6 +66,7 @@ const Allschools = () => {
                 }
                 </tbody>
                 </table>
+                
                         </div>
                  </div>
              </div>

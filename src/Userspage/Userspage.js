@@ -58,9 +58,9 @@ function Userspage()
                                 <img className="card-img" height="330" src={`http://localhost:8000/${school.image}`} alt="Schools" />
                                   <div className="card-img-overlay text-white position-absolute bottom-0 start-0">
                         <h5 className="card-title position-absolute m-5 bottom-0 start-0">{school.name}</h5>
-                        <Button color="secondary" className="position-absolute bottom-0 start-0 m-2">
+                        <Link to={`/learnmore/${school.id}`} style={{ textDecoration:'none', fontSize: "20px", color: 'red' }} color="secondary" className="position-absolute bottom-0 start-0 m-2">
                             learn more...
-                        </Button>
+                        </Link>
                                   </div>
                                 </div>
                             </div>

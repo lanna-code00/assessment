@@ -14,7 +14,7 @@ import Allschools from './components/Allschools.js';
 function App() {
   return (
     <div className="App">
-         <Userspage/>
+         {/* <Userspage/> */}
 
       <BrowserRouter>
         <Switch>
@@ -36,7 +36,7 @@ function App() {
           {/* <Updateproduct/> */}
         </Route>
 
-        <Route path="/allschools">
+        <Route path="/">
           <Protected Cmp={Allschools}/>
           {/* <Updateproduct/> */}
         </Route>

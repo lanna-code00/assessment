@@ -28,7 +28,7 @@ function Header()
                         :
                         <>
                     <Link to="/login" style={{ textDecoration:'none' }} className="me-5 float-end">Login</Link>
-                    <Link to="/register" style={{ textDecoration:'none' }} className="me-5 float-end">Register</Link>
+                    {/* <Link to="/register" style={{ textDecoration:'none' }} className="me-5 float-end">Register</Link> */}
                         </>
                     }
                     <div className="float-end">

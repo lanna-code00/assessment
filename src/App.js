@@ -23,9 +23,9 @@ function App() {
           <Login/>
         </Route>
         
-        <Route path="/register">
+        {/* <Route path="/register">
           <Register/>
-        </Route>
+        </Route> */}
 
         <Route path="/add">
           <Protected Cmp={Addproduct}/>

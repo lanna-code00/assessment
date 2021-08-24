@@ -56,7 +56,7 @@ function Userspage()
                         return (
                             <div className="col-md-3">
                                 <div className="card mb-2">
-                                <img className="card-img" height="330" src={`https://travel4college.herokuapp.com/${school.image}`} alt="Schools" />
+                                <img className="card-img" height="330" src={school.image} alt="Schools" />
                                   <div className="card-img-overlay text-white position-absolute bottom-0 start-0">
                         <h5 className="card-title position-absolute m-5 bottom-0 start-0">{school.name}</h5>
                         <Link to={`/learnmore/${school.id}`} style={{ textDecoration:'none', fontSize: "20px", color: 'red' }} color="secondary" className="position-absolute bottom-0 start-0 m-2">

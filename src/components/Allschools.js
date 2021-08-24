@@ -53,7 +53,7 @@ const Allschools = () => {
                                 <td>{school.name}</td>
                                 <td>{school.details}</td>
                                 <td><a href={school.links} target="_blank">{school.links}</a> </td>
-                                <td><img src={`https://travel4college.herokuapp.com/${school.image}`} style={{ width: '40px', height: '40px' }}/></td>
+                                <td><img src={school.image} style={{ width: '40px', height: '40px' }}/></td>
                                 <td>
                                     <Link to={`/update/${school.id}`}>
                                     <span className="fa fa-edit p-2 text-primary" style={{ cursor: 'pointer' }}></span> 

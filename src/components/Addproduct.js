@@ -11,11 +11,7 @@ function Addproduct()
     const [image, setImage] = useState()
 
     async function handleSchools () {
-    //    let formdata = new FormData();
-    //    formdata.append('name', name); 
-    //    formdata.append('details', details); 
-    //    formdata.append('links', links); 
-    //    formdata.append('image', image); 
+ 
       let formdata = {name, details, links, image}
 
        let submission = await fetch("https://travel4college.herokuapp.com/api/schools", {

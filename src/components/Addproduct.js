@@ -11,11 +11,12 @@ function Addproduct()
     const [image, setImage] = useState()
 
     async function handleSchools () {
-       let formdata = new FormData();
-       formdata.append('name', name); 
-       formdata.append('details', details); 
-       formdata.append('links', links); 
-       formdata.append('image', image); 
+    //    let formdata = new FormData();
+    //    formdata.append('name', name); 
+    //    formdata.append('details', details); 
+    //    formdata.append('links', links); 
+    //    formdata.append('image', image); 
+      let formdata = {name, details, links, image}
 
        let submission = await fetch("https://travel4college.herokuapp.com/api/schools", {
            method: "POST",
@@ -23,6 +24,23 @@ function Addproduct()
        });
        console.log("Data has been saved");
     }
+
+    function previewFile() {
+        // const preview = document.querySelector('img');
+        const file = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+      
+        reader.addEventListener("load", function () {
+          // convert image file to base64 string
+          setImage(reader.result);
+          
+        //   preview.src = reader.result;
+        }, false);
+      
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
 
     return (
         <>
@@ -49,7 +67,7 @@ function Addproduct()
 
                         <div className="input-group mb-5">
                             <span className="input-group-text fa fa-file" id="basic-addon1"></span>
-                            <input type="file" onChange={(e) => setImage(e.target.files[0])} className="form-control" placeholder=""/>
+                            <input type="file" onChange={previewFile} className="form-control" placeholder=""/>
                         </div>
                         
                         <Button onClick={handleSchools} className="btn btn-primary col-md-12">Add School</Button>

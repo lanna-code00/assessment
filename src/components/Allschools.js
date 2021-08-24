@@ -22,6 +22,7 @@ const Allschools = () => {
         let myschools = await fetch("https://travel4college.herokuapp.com/api/allschool");
         myschools = await myschools.json();
         setData(myschools);
+        console.log(data)
     }
 
     return (

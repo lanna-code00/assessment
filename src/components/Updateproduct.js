@@ -20,20 +20,44 @@ function Updateproduct(props)
     }, [])
 
    async function updateSchools () {
-    let formdata = new FormData();
-    formdata.append('name', name); 
-    formdata.append('details', details); 
-    formdata.append('links', links); 
-    formdata.append('image', image); 
-      let  editschool = await fetch(`https://travel4college.herokuapp.com/api/edit/${editId}`, {
-        method: "POST",
-        body: formdata
-    });
-        editschool = await editschool.json();
-        console.log(editschool);
+    let formdata = {name, details, links, image}
+
+    let result = await fetch(`https://travel4college.herokuapp.com/api/edit/${editId}`, {
+      method: "POST",
+      body: JSON.stringify(formdata),
+      headers: {
+          "Content-Type":"application/json",
+          "Accept": "application/json"
+      }
+    })
+
+      editschool = await editschool.json();
+      console.log(editschool);
+      history.push("/allschools");
+      
+    //   let  editschool = await fetch(`https://travel4college.herokuapp.com/api/edit/${editId}`, {
+    //     method: "POST",
+    //     body: formdata
+    // });
         
-        history.push("/allschools");
     }
+
+    function previewFile() {
+        // const preview = document.querySelector('img');
+        const file = document.querySelector('input[type=file]').files[0];
+        const reader = new FileReader();
+      
+        reader.addEventListener("load", function () {
+          // convert image file to base64 string
+          setImage(reader.result);
+          
+        //   preview.src = reader.result;
+        }, false);
+      
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
 
     return (
         <>
@@ -66,7 +90,7 @@ function Updateproduct(props)
 
                         <div className="input-group mb-5">
                             <span className="input-group-text fa fa-file" id="basic-addon1"></span>
-                            <input type="file" onChange={(e) => setImage(e.target.files[0])} className="form-control" placeholder=""/>
+                            <input type="file" onChange={previewFile} className="form-control" placeholder=""/>
                         </div>
                         
                         <Button onClick={updateSchools} className="btn btn-primary col-md-12">Update School</Button>

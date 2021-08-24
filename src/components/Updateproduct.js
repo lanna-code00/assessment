@@ -61,7 +61,7 @@ function Updateproduct(props)
                         </div>
 
                         <div className="input-group mb-5">
-                            <img src={`https://travel4college.herokuapp.com/${state.image}`} style={{width: 100}}/>
+                            <img src={state.image} style={{width: 100}}/>
                         </div>
 
                         <div className="input-group mb-5">

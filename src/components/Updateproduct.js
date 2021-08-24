@@ -31,8 +31,7 @@ function Updateproduct(props)
       }
     })
 
-      editschool = await editschool.json();
-      console.log(editschool);
+      result = await result.json();
       history.push("/allschools");
       
     //   let  editschool = await fetch(`https://travel4college.herokuapp.com/api/edit/${editId}`, {

@@ -10,14 +10,18 @@ function Userspage()
     const [data, setData] = useState([]);
     const [q, setQ] = useState("");
     const [searchParam] = useState(["name"]);
-
+    const [change, setchange] = useState(true)
     document.body.style = 'background: azure;';
+    // let change = true;
 
     useEffect( async () => {
        let myschools = await fetch("https://travel4college.herokuapp.com/api/allschool");
        myschools = await myschools.json();
        console.log(myschools);
        setData(myschools);
+       if (myschools) {
+           setchange(false)
+       }
     }, []);
 
     function search(items) {
@@ -50,6 +54,13 @@ function Userspage()
             </Container>
         </Navbar>
 
+        {
+            change ? 
+        <div className="spinner-grow spinner" id="spin" style={{ width: '90px', height: '90px' }} role="status">
+            <span className="visually-hidden">Loading...</span>
+        </div>
+            :
+            <>
         <div className="container">
                 <div className="row">
                     {search(data).map((school) => {
@@ -69,6 +80,12 @@ function Userspage()
                     })}
                 </div>
           </div>
+            </>
+        }
+
+
+
+
 
         </>
 

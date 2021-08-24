@@ -9,16 +9,24 @@ function Addproduct()
     const [details, setDetail] = useState()
     const [links, setLinks] = useState()
     const [image, setImage] = useState()
+    const history = useHistory()
 
     async function handleSchools () {
  
       let formdata = {name, details, links, image}
 
-       let submission = await fetch("https://travel4college.herokuapp.com/api/schools", {
-           method: "POST",
-           body: formdata
-       });
-       console.log("Data has been saved");
+      let result = await fetch("https://travel4college.herokuapp.com/api/schools", {
+        method: "POST",
+        body: JSON.stringify(formdata),
+        headers: {
+            "Content-Type":"application/json",
+            "Accept": "application/json"
+        }
+    })
+
+    result = await result.json();
+    history.push("/allschools");
+
     }
 
     function previewFile() {

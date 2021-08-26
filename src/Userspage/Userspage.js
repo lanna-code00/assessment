@@ -71,10 +71,9 @@ function Userspage()
                         return (
                             <div className="col-md-3 px-1">
                                 <div className="card mb-2">
-                                <img className="card-img" height="330" style={{ maxWidth:'600px' }} src={school.image} alt="Schools" />
+                                <img className="card-img" height="330" src={school.image} alt="Schools" />
                                   <div className="card-img-overlay text-white position-absolute bottom-0 start-0">
-                        <h4 className="card-title position-absolute m-5 bottom-0 px-2" style={{ textAlign: "left",
-  textAlignLast: "left"}}>{school.name}</h4>
+                        <h4 className="card-title position-absolute m-5 bottom-0 px-2" style={{ textAlign: "left"}}>{school.name}</h4>
                         {/* <Link to={`/learnmore/${school.id}`} style={{ textDecoration:'none', fontSize: "20px"}} color="secondary" className="position-absolute bottom-0 start-1 m-2">
                            <button className="btn btn-danger btn-sm">learn more...</button>  
                         </Link> */}

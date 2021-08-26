@@ -1,7 +1,11 @@
 
-.has-search .form-control {
+.has-search .form-controls {
     padding-left: 2.375rem;
-    border-radius: 50px;
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
 }
 
 .has-search .form-control-feedback {
@@ -23,3 +27,8 @@
     left: 50%;
     /* transform: translate(-50%, -50%); */
   }
+
+  .padding-0{
+    padding-right:0;
+    padding-left:0;
+}

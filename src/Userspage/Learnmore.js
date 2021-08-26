@@ -18,7 +18,7 @@ const Learnmore = (props) => {
                     <div className="card mb-3 mt-5" style={{ border:'none' }}>
                     <div className="row g-0 mt-5">
                         <div className="col-md-4">
-                        <img src={state.image} className="img-fluid rounded-start" alt="..."/>
+                        <img src={state.image} height="330" className="img-fluid rounded-start" alt="..."/>
                         </div>
                         <div className="col-md-8">
                         <div className="card-body">

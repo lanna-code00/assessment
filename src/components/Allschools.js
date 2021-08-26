@@ -2,9 +2,12 @@ import Header from "./Header"
 import React, {useState, useEffect} from "react";
 import {Table} from "react-bootstrap";
 import {Link} from 'react-router-dom';
+import './Allschools.css';
+
 
 const Allschools = () => {
     const [data, setData] = useState([]);
+    const [change, setchange] = useState(false)
 
     useEffect(() => {
        getSchools()
@@ -22,6 +25,9 @@ const Allschools = () => {
         let myschools = await fetch("https://travel4college.herokuapp.com/api/allschool");
         myschools = await myschools.json();
         setData(myschools);
+        if (myschools) {
+            setchange(false)
+        }
         console.log(data)
     }
 
@@ -46,25 +52,35 @@ const Allschools = () => {
                 </thead>
                 <tbody>
                 {
-                    data.map((school, i) => {
-                        return (
-                            <tr key={school.id}>
-                                <th scope="row">{i + 1}</th>
-                                <td>{school.name}</td>
-                                <td>{school.details}</td>
-                                <td><a href={school.links} target="_blank">{school.links}</a> </td>
-                                <td><img src={school.image} style={{ width: '40px', height: '40px' }}/></td>
-                                <td>
-                                    <Link to={`/update/${school.id}`}>
-                                    <span className="fa fa-edit p-2 text-primary" style={{ cursor: 'pointer' }}></span> 
-                                    </Link>
-                                    
-                                    <span onClick={() => handleDelete(school.id)} style={{ cursor: 'pointer' }} className="fa fa-trash text-danger"></span>
-                                </td>
-                            </tr>
-                        )
-                    })
-                }
+               change ? 
+               <div className="spinner-grow spinner" id="spin" style={{ width: '90px', height: '90px' }} role="status">
+               <span className="visually-hidden">Loading...</span>
+              </div>
+                :
+                <>
+                    {
+                        data.map((school, i) => {
+                            return (
+                                <tr key={school.id}>
+                                    <th scope="row">{i + 1}</th>
+                                    <td>{school.name}</td>
+                                    <td>{school.details}</td>
+                                    <td><a href={school.links} target="_blank">{school.links}</a> </td>
+                                    <td><img src={school.image} style={{ width: '40px', height: '40px' }}/></td>
+                                    <td>
+                                        <Link to={`/update/${school.id}`}>
+                                        <span className="fa fa-edit p-2 text-primary" style={{ cursor: 'pointer' }}></span> 
+                                        </Link>
+                                        
+                                        <span onClick={() => handleDelete(school.id)} style={{ cursor: 'pointer' }} className="fa fa-trash text-danger"></span>
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
+
+                </>
+            }
                 </tbody>
                 </table>
                 

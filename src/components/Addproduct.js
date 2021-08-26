@@ -9,6 +9,7 @@ function Addproduct()
     const [details, setDetail] = useState()
     const [links, setLinks] = useState()
     const [image, setImage] = useState()
+    const [change, setchange] = useState(false)
     const history = useHistory()
 
     async function handleSchools () {
@@ -26,7 +27,9 @@ function Addproduct()
 
     result = await result.json();
     history.push("/allschools");
-
+        if (result) {
+            setchange(false)
+        }
     }
 
     function previewFile() {
@@ -74,7 +77,9 @@ function Addproduct()
                             <input type="file" onChange={previewFile} className="form-control" placeholder=""/>
                         </div>
                         
-                        <Button onClick={handleSchools} className="btn btn-primary col-md-12">Add School</Button>
+                        <Button onClick={handleSchools} className="btn btn-primary col-md-12">
+                        Add School
+                        </Button>
                     
                     </div>
                 </div>
